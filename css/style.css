@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
+
+/*Mini reset de formatações*/
+*{
+    font-size: 100%;
+    font-style: normal;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    /*Estilo do body*/
+    --bg-site: #ece1d0;
+    --font-site: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --text-site-color: #000;
+    /*Estilos da fonte dos títulos*/
+    --font-title: "Carattere", cursive;
+    /*Estilos do main header*/
+    --bg-header-color: #854e39;
+    --text-header-color: #fff;
+    /*Estilos da nav*/
+    --bg-nav-color: #d29273;
+    --text-nav-color: #fff;
+    /*Estilo do carrossel de produtos principal*/
+    /*Botão prev e next*/
+    --bg-btn-display-move: #421811b2;
+    --text-btn-display-move: #d29273;
+    /*Hover do botão prev e next*/
+    --bg-hover-btn-display-move: #421811db;
+    --text-hover-btn-display-move: #eecab8;
+    /*Botão de exibir*/
+    --bg-btn-display-item: #421811;
+    --text-btn-display-item: #fff;
+    
+}
+
+/*Configurações do site*/
+body{
+    background-color: var(--bg-site);
+    color: var(--text-site-color);
+    letter-spacing: 0.10rem;
+    font-family: var(--font-site);
+}
+/*Configurações do cabeçalho*/
+header{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 15vh;
+    background-color: var(--bg-header-color);
+    box-shadow: 0 2px 5px #00000087;
+}
+#titleContainer{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    color: var(--text-header-color);
+    height: 100%;
+    width: 40%;
+    margin-left: 3%;
+}
+#titleContainer img{
+    width: 6rem;
+}
+#titleContainer h1{
+    font-family: var(--font-title);
+    margin: 0 0 0 2%;
+    font-size: 3rem;
+}
+#navPages{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    gap: 5%;
+    align-items: center;
+    color: var(--text-header-color);
+    height: 100%;
+    width: 60%;
+    margin-right: 7%;
+}
+#navPages a, #navPages a:visited{
+    font-size: 1.7rem;
+    text-decoration: none;
+    color: var(--text-header-color);
+}
+#navPages a:hover{
+    transform: scale(1.1);
+    text-shadow: var(--text-hover-btn-display-move) 0 0 10px;
+}
+#btnCartContainer{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 100%;
+}
+#btnCart, #accountSettings button{
+    width: 3rem;
+    background: none;
+    border: none;
+    fill: var(--text-header-color);
+}
+#btnCart:hover, #accountSettings button:hover{
+    transform: scale(1.1);
+    filter: drop-shadow(var(--text-hover-btn-display-move) 0 0 10px);
+}
+#accountSettings button::after {
+    display: none;
+  }
+#navContent{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 5vh;
+    background-color: var(--bg-nav-color);
+    box-shadow: 0 2px 5px #00000087;
+}
+#categoriesSelector{
+    width: 30%;
+    text-align: center;
+}
+#categoriesSelector button{
+    width: 3rem;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--text-nav-color);
+}
+#categoriesSelector button:hover{
+    transform: scale(1.05);
+    filter: drop-shadow(var(--bg-btn-display-move) 0 0 10px);
+}
+#searchContainer{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+#searchContainer svg{
+    fill: var(--text-nav-color);
+    width: 2rem;
+    background: none;
+    border: none;
+}
