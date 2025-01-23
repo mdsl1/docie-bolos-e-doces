@@ -16,6 +16,7 @@
     --text-site-color: #000;
     /*Estilos da fonte dos títulos*/
     --font-title: "Carattere", cursive;
+    --title-color: #421811;
     /*Estilos do main header*/
     --bg-header-color: #854e39;
     --text-header-color: #fff;
@@ -32,7 +33,15 @@
     /*Botão de exibir*/
     --bg-btn-display-item: #421811;
     --text-btn-display-item: #fff;
+    /*Cards de produtos*/
+    --bg-card:#eecab8;
+    --border-card-color:#421811;
     
+}
+
+/*Classe para esconder arquivos*/
+.hide{
+    display: none;
 }
 
 /*Configurações do site*/
@@ -43,11 +52,16 @@ body{
     font-family: var(--font-site);
 }
 /*Configurações do cabeçalho*/
-header{
+#mainHeader{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+#headerContainer{
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
-    height: 15vh;
+    height: 10vh;
     background-color: var(--bg-header-color);
     box-shadow: 0 2px 5px #00000087;
 }
@@ -61,12 +75,12 @@ header{
     margin-left: 3%;
 }
 #titleContainer img{
-    width: 6rem;
+    width: 4.3rem;
 }
 #titleContainer h1{
     font-family: var(--font-title);
     margin: 0 0 0 2%;
-    font-size: 3rem;
+    font-size: 2.4rem;
 }
 #navPages{
     display: flex;
@@ -80,7 +94,7 @@ header{
     margin-right: 7%;
 }
 #navPages a, #navPages a:visited{
-    font-size: 1.7rem;
+    font-size: 1.45rem;
     text-decoration: none;
     color: var(--text-header-color);
 }
@@ -108,7 +122,9 @@ header{
 }
 #accountSettings button::after {
     display: none;
-  }
+}
+
+/*Parte do seletor de categorias e barra de pesquisa*/
 #navContent{
     display: flex;
     flex-flow: row nowrap;
@@ -134,16 +150,123 @@ header{
     transform: scale(1.05);
     filter: drop-shadow(var(--bg-btn-display-move) 0 0 10px);
 }
+/*Barra de pesquisa*/
 #searchContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 70%;
+    justify-content: center;
+}
+#searchBar{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
-    width: 70%;
 }
 #searchContainer svg{
     fill: var(--text-nav-color);
     width: 2rem;
     background: none;
     border: none;
+}
+#searchItensContainer{
+    z-index: 1;
+    position: absolute;
+    top: 15.5vh;
+    width: 20vw;
+    background-color: #f00;
+    border-radius: 30px;
+    padding: 1%;
+}
+.searchItem{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.searchItem img{
+    width: 2.5rem;
+}
+.searchItem p{
+    margin: 0 0 0 2%;
+}
+
+/*Configurações do carrosel com as promoções do dia*/
+#aboutUsContainer{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    margin: 8% 0 2% 0;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#aboutUsContainer h2{
+    font-size: 3rem;
+    font-family: var(--font-title);
+    font-weight: bolder;
+    color: var(--title-color);
+    margin: 3% 0;
+    text-align: center;
+}
+#textContainer{
+    width: 60%;
+    margin: 2% 2% 0 2%;
+    font-size: 1.3rem;
+}
+#aboutUsContainer img{
+    width: 30%;
+    margin-top: 5%;
+}
+.divLine{
+    height: 2px;
+    background-color: var(--border-card-color);
+    box-shadow: 0 2px 5px #00000087;
+    border-radius: 5px;
+    width: 90%;
+    margin: 5% auto;
+}
+
+/*Configurações do Rodapé*/
+footer{
+    background-color: var(--bg-header-color);
+    margin: 6% 0 0 0;
+    padding: 1% 2% 2% 2%;
+    color: var(--text-header-color);
+}
+#footerContainer{
+    display: flex;
+    gap: 2%;
+    align-items: center;
+    font-size: 1.1rem;
+}
+#footerContainer h3{
+    font-family: var(--font-title);
+    font-size: 3rem;
+}
+footer img{
+    width: 20%;
+    margin-bottom: 1%;
+}
+#contactContainer, #openingHoursContainer{
+    width: 38%;
+    height: 80%;
+}
+footer svg{
+    width: 1.6rem;
+    fill: var(--text-header-color);
+    background: none;
+    border: none;
+}
+.footerLine{
+    display: flex;
+    justify-content: start;
+    gap: 2%;
+    margin: 3% 0;
+}
+.footerLine p{
+    margin: 0;
+}
+footer p:not(.footerLine p){
+    margin:0 0 0.7% 1%;
 }
