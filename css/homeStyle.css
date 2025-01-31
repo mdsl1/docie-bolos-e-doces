@@ -83,6 +83,19 @@ body{
     margin: 0 0 0 2%;
     font-size: 2.4rem;
 }
+#itensInCart{
+    position: relative;
+    right: 20%;
+    top: -15%;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-content: center;
+    text-align: center;
+    background-color: #f00;
+    border-radius: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+}
 #navPages{
     display: flex;
     flex-flow: row nowrap;
@@ -359,7 +372,7 @@ body{
 .amountLine p{
     margin: 0;
 }
-.item svg{
+.amountLine svg{
     width: 1.3rem;
     background: none;
     border: none;
@@ -415,6 +428,7 @@ footer{
     margin: 6% 0 0 0;
     padding: 1% 2% 2% 2%;
     color: var(--text-header-color);
+    width: 100%;
 }
 #footerContainer{
     display: flex;
@@ -451,4 +465,142 @@ footer svg{
 }
 footer p:not(.footerLine p){
     margin:0 0 0.7% 1%;
+}
+
+/*Estilo do modal*/
+#modalContainer{
+    background-color: var(--bg-card);
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#modalHeader{
+    background-color: var(--bg-header-color);
+    padding: 5% 0 1% 0;
+    box-shadow: 0 2px 5px #00000087;
+}
+
+#modalHeader h1{
+    text-align: center;
+    margin: 0;
+    font-size: 1.7rem;
+    width: 100%;
+    font-family: var(--font-site);
+    color: var(--text-header-color);
+}
+#modalHeader button{
+    font-size: 1rem;
+    position: absolute;
+    right: 0.5%;
+    top: 0.5%;
+    border: none;
+    background: none;
+}
+#modalHeader button:hover{
+    color: #f00;
+}
+
+#modalBody{
+    background-color: var(--bg-site);
+}
+#modalBody img{
+    width: 100%;
+    margin: 0;
+    box-shadow: 0 2px 5px #00000087;
+}
+#modalBody p{
+    margin: 2% 0 4% 0;
+    font-size: 1.1rem;
+    text-align: center;
+}
+#infosContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: start;
+    gap: 5%;
+    width: 100%;
+    margin-bottom: 2%;
+}
+#amountLineModal{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1% 0;
+    gap: 2%;
+}
+#modalAmount{
+    margin: 0;
+    font-size: 1.1rem;
+}
+#amountLineModal svg{
+    width: 1.2rem;
+    background: none;
+    border: none;
+}
+#priceLineModal{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1% 0;
+    gap: 2%;
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+#modalPrice{
+    margin: 0;
+}
+#qtdeItensControl{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: 1% auto;
+    background-color: var(--bg-nav-color);
+    border: #000 2px solid;
+}
+#qtdeItensControl button{
+    width: 2rem;
+    height: 3rem;
+    background: none;
+    border: none;
+}
+#qtdeItensControl button:hover{
+    background-color: var(--bg-hover-btn-display-move);
+    color: var(--text-hover-btn-display-move);
+}
+#qtdeItensControl span{
+    width: 5rem;
+    align-self: center;
+    height: fit-content;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.3rem;
+}
+#modalFooter{
+    display: flex;
+    background-color: var(--bg-nav-color);
+    justify-content: space-around ;
+}
+#displayPriceContainer{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    gap: 3%;
+    font-size: 1.3rem;
+    border-bottom: #000 1px solid;
+    font-weight: bolder;
+}
+#btnAddToCart{
+    padding: 1% 3%;
+    background-color: var(--bg-btn-display-move);
+    color: var(--text-btn-display-item);
+    font-size: 1.2rem;
+    border-radius: 30px;
+    border: #000 solid 2px;
+    text-align: center;
+    margin: 0 auto;
+}
+#btnAddToCart:hover{
+    background-color: var(--bg-hover-btn-display-move);
 }
