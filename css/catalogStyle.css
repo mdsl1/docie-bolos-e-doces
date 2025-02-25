@@ -199,22 +199,46 @@ body{
     z-index: 1;
     position: absolute;
     top: 15.5vh;
-    width: 20vw;
-    background-color: #f00;
-    border-radius: 30px;
+    width: 35vw;
+    background-color: var(--bg-header-color);
+    align-items: flex-start;
+    border-radius: 10px;
     padding: 1%;
 }
 .searchItem{
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin: 1% 0;
+    padding: 1% 2%;
+    border-radius: 10px;
+    background-color: var(--bg-card);
 }
 .searchItem img{
-    width: 2.5rem;
+    width: 3.5rem;
+    margin-right: 1%;
 }
 .searchItem p{
-    margin: 0 0 0 2%;
+    width: 70%;
+    margin: 0;
+}
+#noResults{
+    text-align: center;
+    color: var(--text-nav-color);
+}
+.btnSearchBar{
+    width: 25%;
+    background-color: var(--bg-btn-display-move);
+    color: var(--text-btn-display-item);
+    border-radius: 30px;
+    border: #000 solid 2px;
+    text-align: center;
+    transition: 0.2s;
+}
+.btnSearchBar:hover{
+    background-color: var(--bg-hover-btn-display-move);
 }
 
 /*Tab para finalizar compra*/
