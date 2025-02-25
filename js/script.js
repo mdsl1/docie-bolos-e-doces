@@ -180,6 +180,93 @@ let purchasedQtde;
 let qtdeItensInCart =  sessionStorage.getItem("qtdeItensInCart");
 let itensInCart = document.getElementById("itensInCart");
 
+// Variaveis para a barra de pesquisa
+let searchInput = document.getElementById("searchInput");
+let searchItensContainer = document.getElementById("searchItensContainer");
+
+function createSearchbarItens(){
+    for (let i = 0; i < itemArray.length; i++) {
+        // Define variáveis com as informações do item
+        let id = itemArray[i].id;
+        let title = itemArray[i].title;
+        let img = itemArray[i].image;
+
+        //  Cria o elemento, adiciona a classe e o id dele para uso posterior
+        let produtoDiv = document.createElement("div");
+        produtoDiv.classList.add("searchItem");
+        produtoDiv.dataset.id = i; // Define o id do item
+
+        // Preenche o elemento com as informações do item
+        produtoDiv.innerHTML = `
+            <img src="${img}" alt="${title}">
+            <p class="titleItemSearchbar">${title}</p>
+        `;
+
+        // Cria o botão manualmente, adicionando o event listener linkado direto pra função de preencher o modal
+        let btnVerProduto = document.createElement("button");
+        btnVerProduto.classList.add("btnSearchBar");
+        btnVerProduto.setAttribute("data-bs-toggle", "modal");
+        btnVerProduto.setAttribute("data-bs-target", "#modalWindow");
+        btnVerProduto.textContent = "Ver produto";
+
+        // Adiciona evento diretamente no botão
+        btnVerProduto.addEventListener("click", function () {
+            fillModal(id);
+        });
+        // Adiciona o botão À div do item
+        produtoDiv.appendChild(btnVerProduto);
+
+        // Adiciona o item ao container da searchbar
+        searchItensContainer.appendChild(produtoDiv);
+    }
+}
+
+searchInput.addEventListener('input', (event) => {
+    let value = formatString(event.target.value); // Armazena e formata o valor do input
+    let items = document.querySelectorAll(".searchItem"); // Seleciona todos os itens
+    let noResults = document.getElementById("noResults"); // Seleciona o elemento da mensagem "nenhum resultado"
+    let hasResults = false; // Indica se há resultados correspondentes
+
+    // Verifica se algo está escrito. Se tiver algo escrito mostra o container, senão esconde
+    if(value != ""){
+        searchItensContainer.classList.remove("hide");
+
+        items.forEach(item => {
+            let itemTitle = item.querySelector(".titleItemSearchbar").textContent; // Obtém o texto do título do item
+
+            // Se o valor digitado está contido nesse texto
+            if (formatString(itemTitle).indexOf(value) !== -1) {
+                // Exibe o item
+                item.style.display = 'flex';
+
+                // Indica que existem resultados
+                hasResults = true;
+            } else {
+                // Oculta o item
+                item.style.display = 'none';
+            }
+        });
+
+        // Exibe ou oculta a mensagem "nenhum resultado"
+        if (hasResults) {
+            noResults.style.display = 'none';
+        } else {
+            noResults.style.display = 'block';
+        }
+    }
+    else{
+        searchItensContainer.classList.add("hide");
+    }
+
+});
+
+function formatString(value) {
+    return value
+        .trim() // Remove espaços em branco
+        .toLowerCase() // Transforma em lowercase
+        .normalize('NFD') // Normaliza para separar os acentos
+        .replace(/[\u0300-\u036f]/g, ''); // Remove os acentos
+}
 
 // Função responsável por pegar o id do produto clicado e passar para a função de preencher o modal
 function getID(button){
@@ -549,4 +636,5 @@ document.querySelectorAll(".btnShowItemDisplay").forEach(button => {
 
 window.onload = () => {
     checkItensInCart();
+    createSearchbarItens();
 }
