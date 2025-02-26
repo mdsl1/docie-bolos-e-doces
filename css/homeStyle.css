@@ -189,12 +189,17 @@ body{
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
+    gap: 2%;
 }
 #searchContainer svg{
     fill: var(--text-nav-color);
     width: 2rem;
     background: none;
     border: none;
+}
+#searchInput{
+    padding: 0 2%;
+    width: 20vw;
 }
 #searchItensContainer{
     z-index: 1;

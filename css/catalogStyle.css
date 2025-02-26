@@ -195,6 +195,10 @@ body{
     background: none;
     border: none;
 }
+#searchInput{
+    padding: 0 2%;
+    width: 20vw;
+}
 #searchItensContainer{
     z-index: 1;
     position: absolute;
