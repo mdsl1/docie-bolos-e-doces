@@ -184,7 +184,7 @@ let itensInCart = document.getElementById("itensInCart");
 let searchInput = document.getElementById("searchInput");
 let searchItensContainer = document.getElementById("searchItensContainer");
 
-function createSearchbarItens(){
+function createSearchbarItens() {
     for (let i = 0; i < itemArray.length; i++) {
         // Define variáveis com as informações do item
         let id = itemArray[i].id;
@@ -437,9 +437,15 @@ function showCart(){
     // Exibe o tab com os itens
     let cartContainer = document.getElementById("tabCart");
     cartContainer.classList.toggle("showCart");
+
+    let bgCartTab = document.getElementById("backgroundTabCart");
+    bgCartTab.classList.toggle("hideBgCart");
     // Chama a função de preencher o carrinho com os itens
     createCart();
 }
+let bgCartTab = document.getElementById("backgroundTabCart").addEventListener("click", () => {
+    showCart();
+})
 
 // Função responsável por preencher o carrinho com os itens
 function createCart() {

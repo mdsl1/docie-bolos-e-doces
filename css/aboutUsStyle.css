@@ -53,15 +53,18 @@ body{
 }
 /*Configurações do cabeçalho*/
 #mainHeader{
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
+    z-index: 3;
 }
+/*Configurações do cabeçalho*/
 #headerContainer{
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
     height: 10vh;
+    min-height: 5rem;
     background-color: var(--bg-header-color);
     box-shadow: 0 2px 5px #00000087;
 }
@@ -141,16 +144,18 @@ body{
 #navContent{
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
     height: 5vh;
+    min-height: 2.3rem;
     background-color: var(--bg-nav-color);
     box-shadow: 0 2px 5px #00000087;
 }
 #categoriesSelector{
     width: 30%;
     text-align: center;
+    margin: auto;
 }
 #categoriesSelector .dropdown-menu{
     background-color: var(--bg-nav-color);
@@ -181,6 +186,7 @@ body{
     flex-flow: column nowrap;
     align-items: center;
     width: 70%;
+    margin: auto;
     justify-content: center;
 }
 #searchBar{
@@ -198,11 +204,10 @@ body{
 #searchInput{
     padding: 0 2%;
     width: 20vw;
+    margin-top: calc(5vh - 4.7vh);
 }
 #searchItensContainer{
     z-index: 1;
-    position: absolute;
-    top: 15.5vh;
     width: 35vw;
     background-color: var(--bg-header-color);
     align-items: flex-start;
@@ -246,8 +251,22 @@ body{
 }
 
 /*Tab para finalizar compra*/
+#backgroundTabCart {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    background-color: #0000005b;
+    z-index: 6;
+}
 .showCart{
     transform: translateX(-30vw);
+}
+.hideBgCart {
+    visibility: hidden;
+    display: none;
 }
 #emptyCart{
     position: absolute;
@@ -260,10 +279,10 @@ body{
 
 #tabCart{
     width: 30vw;
-    height: 90vh;
+    height: 100vh;
     background-color: var(--bg-btn-display-item);
     position: fixed;
-    inset: 10vh -30vw auto auto;
+    inset: 0 -30vw auto auto;
     z-index: 8;
     color: var(--text-header-color);
     font-family: var(--font-site);
